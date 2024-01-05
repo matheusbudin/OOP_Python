@@ -8,3 +8,6 @@ class Item:
 
     def __str__(self):
         return f"{self.__name}: ${self.__price}"
+    @classmethod
+    def with_default_price(cls, name):
+        return cls(name, 1.0)  # default price is 1.0
