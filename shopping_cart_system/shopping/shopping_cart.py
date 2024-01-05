@@ -1,3 +1,4 @@
+from .item import Item
 class ShoppingCart:
     def __init__(self, discount=None):
         self.items = []
@@ -13,4 +14,5 @@ class ShoppingCart:
 
     @staticmethod
     def _validate_item_name(item):
-        return isinstance(item, Item) and len(item.get_price()) > 0
+        return isinstance(item, Item) and item.get_price() > 0
+
