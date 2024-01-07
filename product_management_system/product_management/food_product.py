@@ -1,5 +1,5 @@
 from .product import Product
 
-class ElectronicProduct(Product):
+class FoodProduct(Product):
     def display_info(self):
-        return f"Electronic Product - {self.name}, Base Price: {self.base_price}"
+        return f"Food Product - {self.name}, Base Price: {self.base_price}"

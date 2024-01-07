@@ -1,5 +1,6 @@
+
 import unittest
-from product_management.food_product import FoodProduct
+from product_management.food_product import FoodProduct 
 
 class TestFoodProduct(unittest.TestCase):
     def test_display_info(self):
