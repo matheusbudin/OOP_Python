@@ -52,3 +52,35 @@ All the concepts covered regarding OOP in this project:
 
 7. **Main Script (`main.py`)**
    - *Description*: Utilizes the classes and their methods to demonstrate practical application of OOP concepts.
+
+#Design pattern applied:
+
+### Strategy Pattern in the Project
+
+1. **Location**: 
+   - Implemented in `pricing_strategy.py`.
+
+2. **Description**:
+   - The `PricingStrategy` abstract class defines a common interface for different pricing strategies.
+   - There are two concrete implementations of this interface: `StandardPricingStrategy` and `DiscountPricingStrategy`.
+   - These subclasses (`StandardPricingStrategy` and `DiscountPricingStrategy`) override the `calculate_price` method to provide specific pricing behaviors.
+
+3. **Usage in the Project**:
+   - The `Catalog` class uses a `PricingStrategy` to calculate the total price of products.
+   - By passing different implementations of `PricingStrategy` to the `Catalog`, you can change the way prices are calculated without altering the `Catalog` class. This is a key feature of the Strategy Pattern – it allows algorithms to be selected at runtime.
+
+4. **Benefits**:
+   - This pattern provides flexibility in choosing the appropriate pricing algorithm.
+   - It adheres to the open/closed principle, as new pricing strategies can be added without modifying existing code.
+   - It encapsulates the pricing algorithm details from the `Catalog`, leading to a cleaner and more maintainable code structure.
+
+### Example Usage in `main.py`:
+
+In `main.py`, the Strategy Pattern is demonstrated when different pricing strategies are applied to the `Catalog`:
+
+```python
+standard_pricing = StandardPricingStrategy()
+print("Total price with standard pricing:", catalog.calculate_total_price(standard_pricing))
+
+discount_pricing = DiscountPricingStrategy(10)  # 10% discount
+print("Total price with 10% discount:", catalog.calculate_total_price(discount_pricing))
